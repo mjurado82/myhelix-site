@@ -1,2 +1,4 @@
 mountpoints:
-  /: https://drive.google.com/drive/folders/19zvYkDWc8N0_IlVYQE4tzV0FYXvdlAgC
+  /:
+    url: https://content.da.live/mjurado82/myhelix-site/
+    type: markup
