@@ -33,4 +33,14 @@ jobs:
         echo "Trigger: ${{ github.event_name }}"
         echo "Token: ${{ github.token }}"
         echo "Is App? ${{ github.actor == 'github-app[bot]' }}"
+    - name: Mostrar todas las variables
+      run: env | sort
+
+    - name: Mostrar variable desde vars
+      run: echo "vars.CME_ENDPOINT = ${{ vars.CME_ENDPOINT }}"
+
+    - name: Usar variable en shell
+      env:
+        MI_VAR: ${{ vars.CME_ENDPOINT }}
+      run: echo "Valor de MI_VAR = $MI_VAR"
       shell: bash
