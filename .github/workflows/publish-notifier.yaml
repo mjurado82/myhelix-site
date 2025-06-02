@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Notify backend endpoint
-      main:
+      env:
           MI_SECRET: ${{ secrets.AUTH_KEY }}
       run: |
         sleep 1s
