@@ -1,4 +1,4 @@
-name: Education - Notifier
+name: Publisher - Notifier
 
 on: 
   repository_dispatch:
@@ -24,5 +24,5 @@ jobs:
         BODY='{ "paths": [ "'$PAGE_PATH'" ] }'
         BODY="$(echo "$BODY" | jq -c)"
         response=$(curl 'https://apitest.newsan.com.ar/api/products/stock/ebs/reserve?sku=9132LM620PI' -H 'auth-key: 028450faa154a7df0a69f15387b8a4f5')
-        echo "response: $response"
+        echo "response: $BODY"
       shell: bash
