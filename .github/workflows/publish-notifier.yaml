@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Notify backend endpoint
+      env:
+          MI_SECRET: ${{ secrets.AUTH_KEY }}
       run: |
         sleep 1s
         PAGE_PATH=$(echo "${{ github.event.client_payload.path }}" | sed 's/\.md$//g')
@@ -26,5 +28,5 @@ jobs:
         BODY="$(echo "$BODY" | jq -c)"
         response=$(curl 'https://apitest.newsan.com.ar/api/products/stock/ebs/reserve?sku=9132LM620PI' -H 'auth-key: 028450faa154a7df0a69f15387b8a4f5')
         echo "response: $BODY auth_key: ${{ secrets.AUTH_KEY }} cme_endpoint: $CME_ENDPOINT"
-        echo "cme_endpoint: $CME_ENDPOINT"
+        echo "cme_endpoint: $MI_SECRET"
       shell: bash
