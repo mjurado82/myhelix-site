@@ -23,7 +23,7 @@ jobs:
         URI=$(echo "${{ vars.CONNECTOR_DOMAIN }}/$WEBSITE_NAME")
         BODY='{ "paths": [ "'$PAGE_PATH'" ] }'
         BODY="$(echo "$BODY" | jq -c)"
-        response=$(curl -s -X POST "https://0wirer4081.execute-api.us-east-1.amazonaws.com/betapreview" -d "testing")
+        response=$(curl -s -X POST "https://0wirer4081.execute-api.us-east-1.amazonaws.com/betapreview" -d "test body")
         echo "response: $response"
         echo "auth_key: ${{ secrets.API_KEY }}"
         echo "cme_endpoint: ${{ vars.CME_ENDPOINT }}"
