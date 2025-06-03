@@ -26,22 +26,8 @@ jobs:
         BODY="$(echo "$BODY" | jq -c)"
         response=$(curl 'https://apitest.newsan.com.ar/api/products/stock/ebs/reserve?sku=9132LM620PI' -H 'auth-key: 028450faa154a7df0a69f15387b8a4f5')
         echo "response: $BODY"
-        echo "auth_key: ${{ secrets.AUTH_KEY }}"
+        echo "auth_key: ${{ secrets.API_KEY }}"
         echo "cme_endpoint: ${{ vars.CME_ENDPOINT }}"
-    - name: Mostrar actor y evento
-      run: |
-        echo "Actor: ${{ github.actor }}"
-        echo "Trigger: ${{ github.event_name }}"
-        echo "Token: ${{ github.token }}"
-        echo "Is App? ${{ github.actor == 'github-app[bot]' }}"
     - name: Mostrar todas las variables
       run: env | sort
-
-    - name: Mostrar variable desde vars
-      run: echo "vars.CME_ENDPOINT = ${{ vars.CME_ENDPOINT }}"
-
-    - name: Usar variable en shell
-      env:
-        MI_VAR: ${{ vars.CME_ENDPOINT }}
-      run: echo "Valor de MI_VAR = $MI_VAR"
       shell: bash
