@@ -11,6 +11,7 @@ jobs:
     - run: |
         echo "Status: ${{ github.event.client_payload.status }}"
         echo "Path: ${{ github.event.client_payload.path }}"
+        echo "${{ toJson(github.event.client_payload) }}"
         echo "tags: ${{ github.event.client_payload.tags }}"
         echo "lastModified: ${{ github.event.client_payload.lastModified }}"
         echo "title: ${{ github.event.client_payload.title }}"
