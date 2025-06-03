@@ -23,8 +23,8 @@ jobs:
         URI=$(echo "${{ vars.CONNECTOR_DOMAIN }}/$WEBSITE_NAME")
         BODY='{ "paths": [ "'$PAGE_PATH'" ] }'
         BODY="$(echo "$BODY" | jq -c)"
-        response=$(curl 'https://apitest.newsan.com.ar/api/products/stock/ebs/reserve?sku=9132LM620PI' -H 'auth-key: 028450faa154a7df0a69f15387b8a4f5')
-        echo "response: $BODY"
+        response=$(curl -s -X POST "https://0wirer4081.execute-api.us-east-1.amazonaws.com/betapreview" -d "testing")
+        echo "response: $response"
         echo "auth_key: ${{ secrets.API_KEY }}"
         echo "cme_endpoint: ${{ vars.CME_ENDPOINT }}"
     - name: Mostrar todas las variables
